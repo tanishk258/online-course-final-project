@@ -6,8 +6,8 @@ from .models import (
     Submission,
     Course,
     Lesson,
-    Enrollment,
-    User
+    Instructor,
+    Learner
 )
 
 
@@ -23,14 +23,10 @@ class QuestionInline(admin.TabularInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
-    list_display = ('question_text',)
-    search_fields = ['question_text']
 
 
 class LessonAdmin(admin.ModelAdmin):
     inlines = [QuestionInline]
-    list_display = ('title',)
-    search_fields = ['title']
 
 
 admin.site.register(Question, QuestionAdmin)
@@ -38,6 +34,6 @@ admin.site.register(Choice)
 admin.site.register(Submission)
 admin.site.register(Course)
 admin.site.register(Lesson, LessonAdmin)
-admin.site.register(Enrollment)
-admin.site.register(User)
+admin.site.register(Instructor)
+admin.site.register(Learner)
 ```
