@@ -1,2 +1,19 @@
-path('submit/', views.submit, name='submit'),
-path('show_exam_result/', views.show_exam_result, name='show_exam_result'),
+```python
+from django.urls import path
+from . import views
+
+app_name = 'onlinecourse'
+
+urlpatterns = [
+    path(
+        'submit/<int:course_id>/',
+        views.submit,
+        name='submit'
+    ),
+    path(
+        'show_exam_result/<int:course_id>/<int:submission_id>/',
+        views.show_exam_result,
+        name='show_exam_result'
+    ),
+]
+```
